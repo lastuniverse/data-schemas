@@ -1,0 +1,26 @@
+{
+  "name": "data-schemas",
+  "version": "0.0.2",
+  "description": "This JS library is designed to validate / validate data submitted in JSON format.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./tests/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lastuniverse/data-schemas.git"
+  },
+  "keywords": [
+    "schema",
+    "data",
+    "validation",
+    "json",
+    "javascript"
+  ],
+  "author": "Roman Surmanidze aka lastuniverse",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/lastuniverse/data-schemas/issues"
+  },
+  "homepage": "https://github.com/lastuniverse/data-schemas#readme"
+}
