@@ -30,79 +30,8 @@ const boolean = DS.schema( "boolean", {	type: "boolean" });
 
 
 const tests = [
-	// type: string
-	{
-		info: "type \"aaa\" === \"string\"",
-		test: string("aaa")
-	},
-	{
-		info: "type 123 !== \"string\"",
-		test: !string(123)
-	},
-	{
-		info: "type [] !== \"string\"",
-		test: !string([])
-	},
-	{
-		info: "type {} !== \"string\"",
-		test: !string({})
-	},
-	{
-		info: "type true !== \"string\"",
-		test: !string(true)
-	},
-	// type: string
-	// length: 3
-	{
-		info: "length \"aaa\" === 3",
-		test: string_length("aaa")
-	},
-	{
-		info: "length \"aaaa\" !== 3",
-		test: !string_length("aaaa")
-	},
-	// type: string
-	// min: 3
-	{
-		info: "length \"aaa\" >= 3 === true",
-		test: string_min("aaa")
-	},
-	{
-		info: "length \"aaaa\" >= 3 === true",
-		test: string_min("aaaa")
-	},
-	{
-		info: "length \"aa\" >= 3 === false",
-		test: !string_min("aa")
-	},
-	// type: string
-	// max: 4
-	{
-		info: "length \"aaa\" <= 3 === true",
-		test: string_max("aaa")
-	},
-	{
-		info: "length \"aa\" <= 3 === true",
-		test: string_max("aa")
-	},
-	{
-		info: "length \"aaaa\" <= 3 === false",
-		test: !string_max("aaaa")
-	},
-	// type: string
-	// regex: /^\w{3}$/
-	{
-		info: "\"aaa\".search(/^\w{3}$/) === true",
-		test: string_regex("aaa")
-	},
-	{
-		info: "\"aa\".search(/^\w{3}$/) === false",
-		test: !string_regex("aa")
-	},
-	{
-		info: "\"aaaa\".search(/^\w{3}$/) === false",
-		test: !string_regex("aaaa")
-	},
+	
+
 	// type: number
 	{
 		info: "typeof \"aaa\" !== \"number\"",

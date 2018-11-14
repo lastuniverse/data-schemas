@@ -1,10 +1,10 @@
 {
   "name": "data-schemas",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "This JS library is designed to validate / validate data submitted in JSON format.",
   "main": "index.js",
   "scripts": {
-    "test": "node ./tests/main.js"
+    "test": "./node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,11 @@
   "license": "Unlicense",
   "bugs": {
     "url": "https://github.com/lastuniverse/data-schemas/issues"
+  },
+  "dependencies": {
+    "should": "*",
+    "mocha": "*",
+    "chai": "*"
   },
   "homepage": "https://github.com/lastuniverse/data-schemas#readme"
 }
