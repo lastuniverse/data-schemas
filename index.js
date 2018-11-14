@@ -73,46 +73,56 @@ const validators = {
 	}
 };
 
+// required
+// default
+// mutable
 
 const registerSchemas = {};
-module.exports.schema = function ( name,	schema ) {
+
+
+
+module.exports = Schema;
+function Schema( name,	schema ) {
 	if(typeof name !== "string")
-		return false;
+		return;
 	if(typeof schema !== "object" || Array.isArray(schema) )
-		return false;
-	registerSchemas[name] = schema;	
-	return function(data){
-		//console.log("schema 01");
-		return validate(data, schema);
-	}
+		return;
+
+	
+	// return function(data){
+	// 	//console.log("schema 01");
+	// 	return validate(data, schema);
+	// }
+	this.name = name||"unnamed";
+	this.schema = schema||{};
+	registerSchemas[name] = this;
+	return this;
 }
 
-module.exports.validate = validate;
-function validate(data, schema) {
+
+// module.exports.validate = validate;
+Schema.prototype.validate = function(data) {
 	if( !data )
 		return false;
 
-	if( !schema || typeof schema !== "object" )
+	if( !this.schema.type )
 		return false;
 
-	if( !schema.type )
-		return false;
-
-	const tests = validators[schema.type];
+	const tests = validators[this.schema.type];
 	if( !tests )
 		return false;
 
 	const type = typeof data;
-	if( schema.converter === true ){
-		data = converters[schema.type][type](data);
-	}else if ( typeof schema.converter === "function" ){
-		data = schema.converter(data);
+	if( this.schema.converter === true ){
+		data = converters[this.schema.type][type](data);
+	}else if ( typeof this.schema.converter === "function" ){
+		data = this.schema.converter(data);
 	}
 
 	return Object.keys(tests).every(key=>{
-		if(!schema[key])
+		if(!this.schema[key])
 			return true;
-		return tests[key](data, schema[key]);
+		return tests[key](data, this.schema[key]);
 	});
 
 }

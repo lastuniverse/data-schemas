@@ -9,23 +9,28 @@ const DS = require('../index.js');
 describe("проверяем метод create", function() {
 
   it("создаем схему для string", function() {
-    assert.equal( DS.schema( "string", { type: "string"})("aaa"), true);
+    const schema = new DS( "string", { type: "string"});
+    assert.equal( schema.validate("aaa"), true);
   });
 
   it("создаем схему для number", function() {
-    assert.equal( DS.schema( "number", { type: "number"})(123), true);
+    const schema = new DS( "number", { type: "number"});
+    assert.equal( schema.validate(123), true);
   });
 
   it("создаем схему для boolean", function() {
-    assert.equal( DS.schema( "boolean", { type: "boolean"})(true), true);
+    const schema = new DS( "boolean", { type: "boolean"} );
+    assert.equal( schema.validate(true), true);
   });
 
   it("создаем схему для array", function() {
-    assert.equal( DS.schema( "array", { type: "array"})([]), true);
+    const schema = new DS( "array", { type: "array"} );
+    assert.equal( schema.validate([]), true);
   });
 
   it("создаем схему для object", function() {
-    assert.equal( DS.schema( "object", { type: "object"})({}), true);
+    const schema = new DS( "object", { type: "object"} );
+    assert.equal( schema.validate({}), true);
   });
 
 });
